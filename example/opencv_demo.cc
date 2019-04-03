@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     getopt_add_bool(getopt, 'h', "help", 0, "Show this help");
     getopt_add_bool(getopt, 'd', "debug", 1, "Enable debugging output (slow)");
     getopt_add_bool(getopt, 'q', "quiet", 0, "Reduce output");
-    getopt_add_string(getopt, 'f', "family", "tag36h11", "Tag family to use");
+    getopt_add_string(getopt, 'f', "family", "tagCircle21h7", "Tag family to use");
     getopt_add_int(getopt, 't', "threads", "1", "Use this many CPU threads");
     getopt_add_double(getopt, 'x', "decimate", "2.0", "Decimate input image by this factor");
     getopt_add_double(getopt, 'b', "blur", "0.0", "Apply low-pass blur to input");
@@ -119,7 +119,6 @@ int main(int argc, char *argv[])
         };
 
         zarray_t *detections = apriltag_detector_detect(td, &im);
-        cout << zarray_size(detections) << " tags detected" << endl;
 
         // Draw detection outlines
         for (int i = 0; i < zarray_size(detections); i++) {
@@ -149,7 +148,9 @@ int main(int argc, char *argv[])
             putText(frame, text, Point(det->c[0]-textsize.width/2,
                                        det->c[1]+textsize.height/2),
                     fontface, fontscale, Scalar(0xff, 0x99, 0), 2);
+            cout << zarray_size(detections) << " tags detected at x: " << det->c[0]-textsize.width/2 << " y: "<< det->c[1]+textsize.height/2 << endl;
         }
+
         zarray_destroy(detections);
 
         imshow("Tag Detections", frame);
