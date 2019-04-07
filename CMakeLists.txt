@@ -66,6 +66,36 @@ if(OpenCV_FOUND)
     install(TARGETS opencv_demo RUNTIME DESTINATION bin)
 endif(OpenCV_FOUND)
 
+if (APPLE) 
+    ADD_LIBRARY(rdbfwlib SHARED rdbfw.c messaging.c utils.c timers.c rdbfw.h fwalloc.c fwalloc.h common.c mux.c api.c vr.h mux.h api.h ../src/rDB.h timing.c timing.h video_utils.c comm_util.c)
+    set_target_properties(rdbfwlib PROPERTIES
+        FRAMEWORK TRUE
+        FRAMEWORK_VERSION C
+        MACOSX_FRAMEWORK_IDENTIFIER com.vantagerobortics.rdbfwlib
+        # "current version" in semantic format in Mach-O binary file
+        VERSION 16.4.0
+        # "compatibility version" in semantic format in Mach-O binary file
+        SOVERSION 1.0.0
+        MACOSX_FRAMEWORK_BUNDLE_VERSION 1
+        MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${GIT_TAG}
+        PUBLIC_HEADER rdbfwlib.h
+        XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
+        )
+    target_compile_definitions (rdbfwlib PRIVATE RDB_USE_STD_TUNE )
+endif()
+
 # install example programs
 install(TARGETS apriltag_demo RUNTIME DESTINATION bin)
+
+
+
+
+
+
+
+
+
+
+
+
 
