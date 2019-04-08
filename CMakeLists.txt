@@ -13,6 +13,9 @@ include_directories(.)
 aux_source_directory(common COMMON_SRC)
 aux_source_directory(. APRILTAG_SRCS)
 
+file (GLOB SOURCE_FILES "*.h" "common/*.h")
+
+
 execute_process(
     COMMAND git describe --dirty
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
@@ -26,8 +29,9 @@ execute_process(
 
 # set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION 3 VERSION 3.0.0)
 
+
  if(APPLE)
-    add_library(${PROJECT_NAME} SHARED ${APRILTAG_SRCS} apriltag.h ${COMMON_SRC})
+    add_library(${PROJECT_NAME} SHARED ${APRILTAG_SRCS} ${SOURCE_FILES} ${COMMON_SRC} )
     set_target_properties(${PROJECT_NAME} PROPERTIES
         FRAMEWORK TRUE
         FRAMEWORK_VERSION C
