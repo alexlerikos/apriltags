@@ -39,7 +39,7 @@ extern "C" {
 #include "tagCustom48h12.h"
 #include "tagStandard41h12.h"
 #include "tagStandard52h13.h"
-#include "common/getopt.h"
+#include "getopt.h"
 }
 
 using namespace std;

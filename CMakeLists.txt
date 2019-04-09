@@ -10,10 +10,9 @@ find_package(Threads REQUIRED)
 find_package(OpenCV QUIET)
 
 include_directories(.)
-aux_source_directory(common COMMON_SRC)
 aux_source_directory(. APRILTAG_SRCS)
 
-file (GLOB SOURCE_FILES "*.h" "common/*.h")
+file (GLOB SOURCE_FILES "*.h" "*.h")
 
 
 execute_process(
@@ -31,7 +30,7 @@ execute_process(
 
 
  if(APPLE)
-    add_library(${PROJECT_NAME} SHARED ${APRILTAG_SRCS} ${SOURCE_FILES} ${COMMON_SRC} )
+    add_library(${PROJECT_NAME} SHARED ${APRILTAG_SRCS} ${SOURCE_FILES})
     set_target_properties(${PROJECT_NAME} PROPERTIES
         FRAMEWORK TRUE
         FRAMEWORK_VERSION C

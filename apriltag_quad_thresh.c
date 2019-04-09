@@ -35,14 +35,14 @@ either expressed or implied, of the Regents of The University of Michigan.
 #include <stdint.h>
 
 #include "apriltag.h"
-#include "common/image_u8x3.h"
-#include "common/zarray.h"
-#include "common/zhash.h"
-#include "common/unionfind.h"
-#include "common/timeprofile.h"
-#include "common/zmaxheap.h"
-#include "common/postscript_utils.h"
-#include "common/math_util.h"
+#include "image_u8x3.h"
+#include "zarray.h"
+#include "zhash.h"
+#include "unionfind.h"
+#include "timeprofile.h"
+#include "zmaxheap.h"
+#include "postscript_utils.h"
+#include "math_util.h"
 
 
 static inline uint32_t u64hash_2(uint64_t x) {

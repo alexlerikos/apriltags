@@ -3,8 +3,8 @@
 
 #include "apriltag_pose.h"
 #include "apriltag_math.h"
-#include "common/homography.h"
-#include "common/image_u8x3.h"
+#include "homography.h"
+#include "image_u8x3.h"
 
 
 /**

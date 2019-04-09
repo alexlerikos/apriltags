@@ -40,20 +40,20 @@ either expressed or implied, of the Regents of The University of Michigan.
 #include <inttypes.h>
 #include <sys/time.h>
 
-#include "common/image_u8.h"
-#include "common/image_u8x3.h"
-#include "common/zhash.h"
-#include "common/zarray.h"
-#include "common/matd.h"
-#include "common/homography.h"
-#include "common/timeprofile.h"
-#include "common/math_util.h"
-#include "common/g2d.h"
-#include "common/floats.h"
+#include "image_u8.h"
+#include "image_u8x3.h"
+#include "zhash.h"
+#include "zarray.h"
+#include "matd.h"
+#include "homography.h"
+#include "timeprofile.h"
+#include "math_util.h"
+#include "g2d.h"
+#include "floats.h"
 
 #include "apriltag_math.h"
 
-#include "common/postscript_utils.h"
+#include "postscript_utils.h"
 
 #ifndef M_PI
 # define M_PI 3.141592653589793238462643383279502884196
